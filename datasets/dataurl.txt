@@ -1,0 +1,13 @@
+MTA NYC Subway Project -- Data URLs (data.ny.gov)
+
+MTA Subway Hourly Ridership: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-2025/5wq4-mkjj/about_data
+MTA Subway Terminal On-Time Performance: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Terminal-On-Time-Performance-Beginning-/ks33-g5ze/about_data
+MTA Subway Trains Delayed: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Trains-Delayed-Beginning-2025/9zbp-wz3y/about_data
+MTA Subway Service Delivered: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Service-Delivered-Beginning-2025/nmu4-7tz9/about_data
+MTA Subway 4 to 5 Minute Late Arriving Trains: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-4-to-5-Minute-Late-Arriving-Trains-Begi/x7nj-r656/about_data
+MTA Subway Major Incidents: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Major-Incidents-Beginning-2025/uqnw-2qfk/about_data
+MTA Subway Customer Journey-Focused Metrics: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Customer-Journey-Focused-Metrics-Beginn/s4u6-t435/about_data
+MTA Subway Wait Assessment: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Wait-Assessment-Beginning-2025/62c4-mvcx/about_data
+MTA Subway Terminal On-Time Performance: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Terminal-On-Time-Performance-Beginning-/ks33-g5ze/about_data
+
+## (Not using) MTA Subway Origin-Destination Ridership Estimate: Beginning 2025: https://data.ny.gov/Transportation/MTA-Subway-Origin-Destination-Ridership-Estimate-B/y2qv-fytt/about_data

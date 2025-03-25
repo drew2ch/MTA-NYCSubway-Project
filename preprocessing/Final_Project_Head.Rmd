@@ -1,0 +1,24 @@
+---
+title: "Final_Project_Head"
+author: "Andrew Chung"
+date: "2025-03-24"
+output: pdf_document
+---
+
+# BTRY 4100 - Final Project Plan, Head of Datasets
+
+Andrew Chung, hc893
+
+## Service Performance Metrics Dataset
+
+```{r}
+line_data = read.csv("MTA_Subway_Line_Data_2025.csv")
+head(line_data, 10)
+```
+
+## Hourly Ridership Summarized Dataset
+
+```{r}
+hourly_ridership = read.csv("MTA_Subway_Ridership_Summarized_2025.csv")
+head(hourly_ridership, 10)
+```
