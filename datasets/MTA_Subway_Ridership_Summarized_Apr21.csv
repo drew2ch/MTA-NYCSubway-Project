@@ -1,0 +1,840 @@
+station_complex,month,borough,ridership,lines
+1 Av (L),1,Manhattan,256485,L
+1 Av (L),2,Manhattan,238896,L
+103 St (1),1,Manhattan,113094,1
+103 St (1),2,Manhattan,106107,1
+103 St (6),1,Manhattan,110822,6
+103 St (6),2,Manhattan,103738,6
+"103 St (C,B)",1,Manhattan,39135,"C,B"
+"103 St (C,B)",2,Manhattan,37727,"C,B"
+103 St-Corona Plaza (7),1,Queens,204710,7
+103 St-Corona Plaza (7),2,Queens,186267,7
+104 St (A),1,Queens,13477,A
+104 St (A),2,Queens,12733,A
+"104 St (J,Z)",1,Queens,22394,"J,Z"
+"104 St (J,Z)",2,Queens,21309,"J,Z"
+110 St (6),1,Manhattan,95541,6
+110 St (6),2,Manhattan,89020,6
+111 St (7),1,Queens,89548,7
+111 St (7),2,Queens,90782,7
+111 St (A),1,Queens,16943,A
+111 St (A),2,Queens,15891,A
+111 St (J),1,Queens,17508,J
+111 St (J),2,Queens,16495,J
+"116 St (2,3)",1,Manhattan,83527,"2,3"
+"116 St (2,3)",2,Manhattan,78404,"2,3"
+116 St (6),1,Manhattan,101385,6
+116 St (6),2,Manhattan,105468,6
+"116 St (C,B)",1,Manhattan,58318,"C,B"
+"116 St (C,B)",2,Manhattan,56030,"C,B"
+116 St-Columbia University (1),1,Manhattan,121865,1
+116 St-Columbia University (1),2,Manhattan,153693,1
+"121 St (J,Z)",1,Queens,19379,"J,Z"
+"121 St (J,Z)",2,Queens,19467,"J,Z"
+125 St (1),1,Manhattan,74225,1
+125 St (1),2,Manhattan,78438,1
+"125 St (2,3)",1,Manhattan,113871,"2,3"
+"125 St (2,3)",2,Manhattan,106034,"2,3"
+"125 St (4,5,6)",1,Manhattan,220479,"4,5,6"
+"125 St (4,5,6)",2,Manhattan,206688,"4,5,6"
+"125 St (A,C,B,D)",1,Manhattan,217645,"A,C,B,D"
+"125 St (A,C,B,D)",2,Manhattan,218251,"A,C,B,D"
+"135 St (2,3)",1,Manhattan,98971,"2,3"
+"135 St (2,3)",2,Manhattan,91321,"2,3"
+"135 St (C,B)",1,Manhattan,43203,"C,B"
+"135 St (C,B)",2,Manhattan,45184,"C,B"
+137 St-City College (1),1,Manhattan,92155,1
+137 St-City College (1),2,Manhattan,97789,1
+"138 St-Grand Concourse (4,5)",1,Bronx,31842,"4,5"
+"138 St-Grand Concourse (4,5)",2,Bronx,31307,"4,5"
+"14 St (A,C,E)/8 Av (L)",1,Manhattan,407967,"A,C,E,L"
+"14 St (A,C,E)/8 Av (L)",2,Manhattan,374625,"A,C,E,L"
+"14 St (F,M,1,2,3)/6 Av (L)",1,Manhattan,384972,"F,M,1,2,3,L"
+"14 St (F,M,1,2,3)/6 Av (L)",2,Manhattan,363718,"F,M,1,2,3,L"
+"14 St-Union Sq (L,N,Q,R,W,4,5,6)",1,Manhattan,830973,"L,N,Q,R,W,4,5,6"
+"14 St-Union Sq (L,N,Q,R,W,4,5,6)",2,Manhattan,795975,"L,N,Q,R,W,4,5,6"
+145 St (1),1,Manhattan,75890,1
+145 St (1),2,Manhattan,71436,1
+145 St (3),1,Manhattan,26881,3
+145 St (3),2,Manhattan,25273,3
+"145 St (A,C,B,D)",1,Manhattan,174445,"A,C,B,D"
+"145 St (A,C,B,D)",2,Manhattan,181677,"A,C,B,D"
+"149 St-Grand Concourse (2,4,5)",1,Bronx,89903,"2,4,5"
+"149 St-Grand Concourse (2,4,5)",2,Bronx,87803,"2,4,5"
+"15 St-Prospect Park (F,G)",1,Brooklyn,60910,"F,G"
+"15 St-Prospect Park (F,G)",2,Brooklyn,55039,"F,G"
+"155 St (B,D)",1,Manhattan,21290,"B,D"
+"155 St (B,D)",2,Manhattan,20036,"B,D"
+155 St (C),1,Manhattan,19568,C
+155 St (C),2,Manhattan,18180,C
+157 St (1),1,Manhattan,84570,1
+157 St (1),2,Manhattan,81231,1
+"161 St-Yankee Stadium (B,D,4)",1,Bronx,193141,"B,D,4"
+"161 St-Yankee Stadium (B,D,4)",2,Bronx,182356,"B,D,4"
+163 St-Amsterdam Av (C),1,Manhattan,31503,C
+163 St-Amsterdam Av (C),2,Manhattan,29732,C
+167 St (4),1,Bronx,60368,4
+167 St (4),2,Bronx,58245,4
+"167 St (B,D)",1,Bronx,53620,"B,D"
+"167 St (B,D)",2,Bronx,53116,"B,D"
+"168 St (A,C,1)",1,Manhattan,223881,"A,C,1"
+"168 St (A,C,1)",2,Manhattan,208760,"A,C,1"
+169 St (F),1,Queens,59788,F
+169 St (F),2,Queens,57400,F
+170 St (4),1,Bronx,56658,4
+170 St (4),2,Bronx,54948,4
+"170 St (B,D)",1,Bronx,36383,"B,D"
+"170 St (B,D)",2,Bronx,34976,"B,D"
+"174 St (2,5)",1,Bronx,43149,"2,5"
+"174 St (2,5)",2,Bronx,42183,"2,5"
+"174-175 Sts (B,D)",1,Bronx,29884,"B,D"
+"174-175 Sts (B,D)",2,Bronx,28923,"B,D"
+175 St (A),1,Manhattan,84060,A
+175 St (A),2,Manhattan,78926,A
+176 St (4),1,Bronx,39592,4
+176 St (4),2,Bronx,38171,4
+18 Av (D),1,Brooklyn,53784,D
+18 Av (D),2,Brooklyn,50639,D
+18 Av (F),1,Brooklyn,32188,F
+18 Av (F),2,Brooklyn,30399,F
+18 Av (N),1,Brooklyn,43955,N
+18 Av (N),2,Brooklyn,42336,N
+18 St (1),1,Manhattan,73522,1
+18 St (1),2,Manhattan,67458,1
+181 St (1),1,Manhattan,85128,1
+181 St (1),2,Manhattan,82170,1
+181 St (A),1,Manhattan,82012,A
+181 St (A),2,Manhattan,79157,A
+"182-183 Sts (B,D)",1,Bronx,30096,"B,D"
+"182-183 Sts (B,D)",2,Bronx,28847,"B,D"
+183 St (4),1,Bronx,36765,4
+183 St (4),2,Bronx,35519,4
+190 St (A),1,Manhattan,40387,A
+190 St (A),2,Manhattan,37112,A
+191 St (1),1,Manhattan,61835,1
+191 St (1),2,Manhattan,57193,1
+2 Av (F),1,Manhattan,142551,F
+2 Av (F),2,Manhattan,130376,F
+20 Av (D),1,Brooklyn,42901,D
+20 Av (D),2,Brooklyn,40451,D
+20 Av (N),1,Brooklyn,37905,N
+20 Av (N),2,Brooklyn,36516,N
+207 St (1),1,Manhattan,45400,1
+207 St (1),2,Manhattan,42465,1
+21 St (G),1,Queens,19159,G
+21 St (G),2,Queens,18150,G
+21 St-Queensbridge (F),1,Queens,91637,F
+21 St-Queensbridge (F),2,Queens,86384,F
+215 St (1),1,Manhattan,20680,1
+215 St (1),2,Manhattan,19395,1
+"219 St (2,5)",1,Bronx,17379,"2,5"
+"219 St (2,5)",2,Bronx,16883,"2,5"
+"225 St (2,5)",1,Bronx,23596,"2,5"
+"225 St (2,5)",2,Bronx,21576,"2,5"
+23 St (1),1,Manhattan,123960,1
+23 St (1),2,Manhattan,115728,1
+23 St (6),1,Manhattan,230098,6
+23 St (6),2,Manhattan,251267,6
+"23 St (C,E)",1,Manhattan,202619,"C,E"
+"23 St (C,E)",2,Manhattan,194039,"C,E"
+"23 St (F,M)",1,Manhattan,274689,"F,M"
+"23 St (F,M)",2,Manhattan,251684,"F,M"
+"23 St (R,W)",1,Manhattan,172081,"R,W"
+"23 St (R,W)",2,Manhattan,168084,"R,W"
+231 St (1),1,Bronx,69640,1
+231 St (1),2,Bronx,66959,1
+"233 St (2,5)",1,Bronx,25524,"2,5"
+"233 St (2,5)",2,Bronx,25220,"2,5"
+238 St (1),1,Bronx,36680,1
+238 St (1),2,Bronx,34683,1
+25 Av (D),1,Brooklyn,36828,D
+25 Av (D),2,Brooklyn,34875,D
+25 St (R),1,Brooklyn,34585,R
+25 St (R),2,Brooklyn,32787,R
+28 St (1),1,Manhattan,116995,1
+28 St (1),2,Manhattan,119291,1
+28 St (6),1,Manhattan,195883,6
+28 St (6),2,Manhattan,183594,6
+"28 St (R,W)",1,Manhattan,109029,"R,W"
+"28 St (R,W)",2,Manhattan,103112,"R,W"
+3 Av (L),1,Manhattan,60175,L
+3 Av (L),2,Manhattan,56528,L
+3 Av-138 St (6),1,Bronx,66804,6
+3 Av-138 St (6),2,Bronx,65459,6
+"3 Av-149 St (2,5)",1,Bronx,151533,"2,5"
+"3 Av-149 St (2,5)",2,Bronx,143091,"2,5"
+"30 Av (N,W)",1,Queens,135588,"N,W"
+"30 Av (N,W)",2,Queens,128542,"N,W"
+33 St (6),1,Manhattan,265191,6
+33 St (6),2,Manhattan,246609,6
+33 St-Rawson St (7),1,Queens,70882,7
+33 St-Rawson St (7),2,Queens,68934,7
+"34 St-Herald Sq (B,D,F,M,N,Q,R,W)",1,Manhattan,963194,"B,D,F,M,N,Q,R,W"
+"34 St-Herald Sq (B,D,F,M,N,Q,R,W)",2,Manhattan,888395,"B,D,F,M,N,Q,R,W"
+34 St-Hudson Yards (7),1,Manhattan,276244,7
+34 St-Hudson Yards (7),2,Manhattan,232737,7
+"34 St-Penn Station (1,2,3)",1,Manhattan,689627,"1,2,3"
+"34 St-Penn Station (1,2,3)",2,Manhattan,639612,"1,2,3"
+"34 St-Penn Station (A,C,E)",1,Manhattan,736250,"A,C,E"
+"34 St-Penn Station (A,C,E)",2,Manhattan,693249,"A,C,E"
+"36 Av (N,W)",1,Queens,62324,"N,W"
+"36 Av (N,W)",2,Queens,58427,"N,W"
+"36 St (D,N,R)",1,Brooklyn,150227,"D,N,R"
+"36 St (D,N,R)",2,Brooklyn,137439,"D,N,R"
+"36 St (M,R)",1,Queens,34094,"M,R"
+"36 St (M,R)",2,Queens,31625,"M,R"
+"39 Av-Dutch Kills (N,W)",1,Queens,33901,"N,W"
+"39 Av-Dutch Kills (N,W)",2,Queens,33359,"N,W"
+"4 Av (F,G)/9 St (R)",1,Brooklyn,126903,"F,G,R"
+"4 Av (F,G)/9 St (R)",2,Brooklyn,116253,"F,G,R"
+40 St-Lowery St (7),1,Queens,91476,7
+40 St-Lowery St (7),2,Queens,85780,7
+45 St (R),1,Brooklyn,68854,R
+45 St (R),2,Brooklyn,66462,R
+"46 St (M,R)",1,Queens,67316,"M,R"
+"46 St (M,R)",2,Queens,64550,"M,R"
+46 St-Bliss St (7),1,Queens,115595,7
+46 St-Bliss St (7),2,Queens,109667,7
+"47-50 Sts-Rockefeller Ctr (B,D,F,M)",1,Manhattan,606747,"B,D,F,M"
+"47-50 Sts-Rockefeller Ctr (B,D,F,M)",2,Manhattan,537095,"B,D,F,M"
+"49 St (N,R,W)",1,Manhattan,230297,"N,R,W"
+"49 St (N,R,W)",2,Manhattan,212374,"N,R,W"
+"5 Av/53 St (E,M)",1,Manhattan,231183,"E,M"
+"5 Av/53 St (E,M)",2,Manhattan,196484,"E,M"
+"5 Av/59 St (N,R,W)",1,Manhattan,134895,"N,R,W"
+"5 Av/59 St (N,R,W)",2,Manhattan,122640,"N,R,W"
+50 St (1),1,Manhattan,229859,1
+50 St (1),2,Manhattan,207421,1
+"50 St (C,E)",1,Manhattan,181133,"C,E"
+"50 St (C,E)",2,Manhattan,164176,"C,E"
+50 St (D),1,Brooklyn,32147,D
+50 St (D),2,Brooklyn,31026,D
+52 St (7),1,Queens,64209,7
+52 St (7),2,Queens,61493,7
+53 St (R),1,Brooklyn,77819,R
+53 St (R),2,Brooklyn,75213,R
+55 St (D),1,Brooklyn,18918,D
+55 St (D),2,Brooklyn,17288,D
+57 St (F),1,Manhattan,128650,F
+57 St (F),2,Manhattan,116496,F
+"57 St-7 Av (N,Q,R,W)",1,Manhattan,307821,"N,Q,R,W"
+"57 St-7 Av (N,Q,R,W)",2,Manhattan,287300,"N,Q,R,W"
+"59 St (N,R)",1,Brooklyn,124947,"N,R"
+"59 St (N,R)",2,Brooklyn,119239,"N,R"
+"59 St-Columbus Circle (A,B,C,D,1)",1,Manhattan,599400,"A,B,C,D,1"
+"59 St-Columbus Circle (A,B,C,D,1)",2,Manhattan,585186,"A,B,C,D,1"
+61 St-Woodside (7),1,Queens,144276,7
+61 St-Woodside (7),2,Queens,132963,7
+"63 Dr-Rego Park (M,R)",1,Queens,124170,"M,R"
+"63 Dr-Rego Park (M,R)",2,Queens,114889,"M,R"
+"65 St (M,R)",1,Queens,29542,"M,R"
+"65 St (M,R)",2,Queens,28344,"M,R"
+66 St-Lincoln Center (1),1,Manhattan,176154,1
+66 St-Lincoln Center (1),2,Manhattan,160645,1
+"67 Av (M,R)",1,Queens,76138,"M,R"
+"67 Av (M,R)",2,Queens,71302,"M,R"
+68 St-Hunter College (6),1,Manhattan,192906,6
+68 St-Hunter College (6),2,Manhattan,225981,6
+69 St (7),1,Queens,56053,7
+69 St (7),2,Queens,52838,7
+"7 Av (B,Q)",1,Brooklyn,100400,"B,Q"
+"7 Av (B,Q)",2,Brooklyn,92592,"B,Q"
+"7 Av (E,B,D)",1,Manhattan,162971,"E,B,D"
+"7 Av (E,B,D)",2,Manhattan,152084,"E,B,D"
+"7 Av (F,G)",1,Brooklyn,127789,"F,G"
+"7 Av (F,G)",2,Brooklyn,115119,"F,G"
+71 St (D),1,Brooklyn,43187,D
+71 St (D),2,Brooklyn,40028,D
+"72 St (1,2,3)",1,Manhattan,367301,"1,2,3"
+"72 St (1,2,3)",2,Manhattan,331174,"1,2,3"
+"72 St (C,B)",1,Manhattan,80026,"C,B"
+"72 St (C,B)",2,Manhattan,73771,"C,B"
+72 St (Q),1,Manhattan,344976,Q
+72 St (Q),2,Manhattan,319846,Q
+"74-Broadway (7)/Jackson Hts-Roosevelt Av (E,F,M,R)",1,Queens,485404,"7,E,F,M,R"
+"74-Broadway (7)/Jackson Hts-Roosevelt Av (E,F,M,R)",2,Queens,446708,"7,E,F,M,R"
+"75 Av (E,F)",1,Queens,31745,"E,F"
+"75 Av (E,F)",2,Queens,29136,"E,F"
+"75 St-Elderts Ln (J,Z)",1,Queens,29831,"J,Z"
+"75 St-Elderts Ln (J,Z)",2,Queens,30622,"J,Z"
+77 St (6),1,Manhattan,266248,6
+77 St (6),2,Manhattan,244482,6
+77 St (R),1,Brooklyn,49783,R
+77 St (R),2,Brooklyn,47351,R
+79 St (1),1,Manhattan,146292,1
+79 St (1),2,Manhattan,133797,1
+79 St (D),1,Brooklyn,52600,D
+79 St (D),2,Brooklyn,50714,D
+8 Av (N),1,Brooklyn,100833,N
+8 Av (N),2,Brooklyn,96105,N
+"8 St-NYU (R,W)",1,Manhattan,144576,"R,W"
+"8 St-NYU (R,W)",2,Manhattan,151769,"R,W"
+80 St (A),1,Queens,32684,A
+80 St (A),2,Queens,31456,A
+"81 St-Museum of Natural History (C,B)",1,Manhattan,114815,"C,B"
+"81 St-Museum of Natural History (C,B)",2,Manhattan,98292,"C,B"
+82 St-Jackson Hts (7),1,Queens,98297,7
+82 St-Jackson Hts (7),2,Queens,108836,7
+85 St-Forest Pkwy (J),1,Queens,14256,J
+85 St-Forest Pkwy (J),2,Queens,14511,J
+86 St (1),1,Manhattan,170309,1
+86 St (1),2,Manhattan,156711,1
+"86 St (4,5,6)",1,Manhattan,441227,"4,5,6"
+"86 St (4,5,6)",2,Manhattan,400912,"4,5,6"
+"86 St (C,B)",1,Manhattan,109618,"C,B"
+"86 St (C,B)",2,Manhattan,101018,"C,B"
+86 St (N),1,Brooklyn,19398,N
+86 St (N),2,Brooklyn,18782,N
+86 St (Q),1,Manhattan,268314,Q
+86 St (Q),2,Manhattan,245776,Q
+86 St (R),1,Brooklyn,98549,R
+86 St (R),2,Brooklyn,94722,R
+88 St (A),1,Queens,22115,A
+88 St (A),2,Queens,21173,A
+9 Av (D),1,Brooklyn,49143,D
+9 Av (D),2,Brooklyn,47516,D
+90 St-Elmhurst Av (7),1,Queens,164748,7
+90 St-Elmhurst Av (7),2,Queens,148357,7
+"96 St (1,2,3)",1,Manhattan,326602,"1,2,3"
+"96 St (1,2,3)",2,Manhattan,302522,"1,2,3"
+96 St (6),1,Manhattan,169015,6
+96 St (6),2,Manhattan,154893,6
+"96 St (C,B)",1,Manhattan,85291,"C,B"
+"96 St (C,B)",2,Manhattan,86747,"C,B"
+96 St (Q),1,Manhattan,179866,Q
+96 St (Q),2,Manhattan,165698,Q
+Alabama Av (J),1,Brooklyn,15691,J
+Alabama Av (J),2,Brooklyn,16000,J
+"Allerton Av (2,5)",1,Bronx,30504,"2,5"
+"Allerton Av (2,5)",2,Bronx,27639,"2,5"
+Aqueduct Racetrack (A),1,Queens,4934,A
+Aqueduct Racetrack (A),2,Queens,4719,A
+Aqueduct-N Conduit Av (A),1,Queens,6104,A
+Aqueduct-N Conduit Av (A),2,Queens,5797,A
+Astor Pl (6),1,Manhattan,147022,6
+Astor Pl (6),2,Manhattan,143212,6
+"Astoria Blvd (N,W)",1,Queens,101141,"N,W"
+"Astoria Blvd (N,W)",2,Queens,96162,"N,W"
+"Astoria-Ditmars Blvd (N,W)",1,Queens,140603,"N,W"
+"Astoria-Ditmars Blvd (N,W)",2,Queens,131523,"N,W"
+Atlantic Av (L),1,Brooklyn,24102,L
+Atlantic Av (L),2,Brooklyn,22652,L
+"Atlantic Av-Barclays Ctr (B,D,N,Q,R,2,3,4,5)",1,Brooklyn,390338,"B,D,N,Q,R,2,3,4,5"
+"Atlantic Av-Barclays Ctr (B,D,N,Q,R,2,3,4,5)",2,Brooklyn,359960,"B,D,N,Q,R,2,3,4,5"
+Avenue H (Q),1,Brooklyn,28961,Q
+Avenue H (Q),2,Brooklyn,29758,Q
+Avenue I (F),1,Brooklyn,15475,F
+Avenue I (F),2,Brooklyn,14790,F
+Avenue J (Q),1,Brooklyn,48081,Q
+Avenue J (Q),2,Brooklyn,47756,Q
+Avenue M (Q),1,Brooklyn,50917,Q
+Avenue M (Q),2,Brooklyn,49541,Q
+Avenue N (F),1,Brooklyn,26180,F
+Avenue N (F),2,Brooklyn,24910,F
+Avenue P (F),1,Brooklyn,22458,F
+Avenue P (F),2,Brooklyn,21615,F
+Avenue U (F),1,Brooklyn,18588,F
+Avenue U (F),2,Brooklyn,17633,F
+Avenue U (N),1,Brooklyn,33965,N
+Avenue U (N),2,Brooklyn,32784,N
+Avenue U (Q),1,Brooklyn,60474,Q
+Avenue U (Q),2,Brooklyn,58827,Q
+Avenue X (F),1,Brooklyn,20842,F
+Avenue X (F),2,Brooklyn,19857,F
+Bay 50 St (D),1,Brooklyn,21024,D
+Bay 50 St (D),2,Brooklyn,19975,D
+Bay Pkwy (D),1,Brooklyn,62131,D
+Bay Pkwy (D),2,Brooklyn,58650,D
+Bay Pkwy (F),1,Brooklyn,9955,F
+Bay Pkwy (F),2,Brooklyn,9374,F
+Bay Pkwy (N),1,Brooklyn,58810,N
+Bay Pkwy (N),2,Brooklyn,57601,N
+Bay Ridge Av (R),1,Brooklyn,67391,R
+Bay Ridge Av (R),2,Brooklyn,65407,R
+Bay Ridge-95 St (R),1,Brooklyn,48009,R
+Bay Ridge-95 St (R),2,Brooklyn,46377,R
+Baychester Av (5),1,Bronx,20488,5
+Baychester Av (5),2,Bronx,19735,5
+"Beach 105 St (A,S)",1,Queens,657,"A,S"
+Beach 25 St (A),1,Queens,5256,A
+Beach 36 St (A),1,Queens,2582,A
+Beach 44 St (A),1,Queens,2791,A
+Beach 60 St (A),1,Queens,5806,A
+Beach 60 St (A),2,Queens,8,A
+Beach 67 St (A),1,Queens,7853,A
+"Beach 90 St (A,S)",1,Queens,2126,"A,S"
+"Beach 98 St (A,S)",1,Queens,1211,"A,S"
+Bedford Av (L),1,Brooklyn,327269,L
+Bedford Av (L),2,Brooklyn,305102,L
+"Bedford Park Blvd (B,D)",1,Bronx,45480,"B,D"
+"Bedford Park Blvd (B,D)",2,Bronx,44768,"B,D"
+Bedford Park Blvd-Lehman College (4),1,Bronx,33399,4
+Bedford Park Blvd-Lehman College (4),2,Bronx,35685,4
+Bedford-Nostrand Avs (G),1,Brooklyn,88327,G
+Bedford-Nostrand Avs (G),2,Brooklyn,82733,G
+"Bergen St (2,3)",1,Brooklyn,47824,"2,3"
+"Bergen St (2,3)",2,Brooklyn,44343,"2,3"
+"Bergen St (F,G)",1,Brooklyn,117594,"F,G"
+"Bergen St (F,G)",2,Brooklyn,107244,"F,G"
+Beverley Rd (Q),1,Brooklyn,55533,Q
+Beverley Rd (Q),2,Brooklyn,46624,Q
+"Beverly Rd (2,5)",1,Brooklyn,41439,"2,5"
+"Beverly Rd (2,5)",2,Brooklyn,39291,"2,5"
+"Bowery (J,Z)",1,Manhattan,27492,"J,Z"
+"Bowery (J,Z)",2,Manhattan,24964,"J,Z"
+"Bowling Green (4,5)",1,Manhattan,211004,"4,5"
+"Bowling Green (4,5)",2,Manhattan,196694,"4,5"
+"Briarwood (E,F)",1,Queens,41977,"E,F"
+"Briarwood (E,F)",2,Queens,39100,"E,F"
+"Brighton Beach (B,Q)",1,Brooklyn,85735,"B,Q"
+"Brighton Beach (B,Q)",2,Brooklyn,81623,"B,Q"
+"Broad Channel (A,S)",1,Queens,1125,"A,S"
+"Broad St (J,Z)",1,Manhattan,58568,"J,Z"
+"Broad St (J,Z)",2,Manhattan,54068,"J,Z"
+Broadway (G),1,Brooklyn,46778,G
+Broadway (G),2,Brooklyn,44241,G
+"Broadway (N,W)",1,Queens,118207,"N,W"
+"Broadway (N,W)",2,Queens,111308,"N,W"
+"Broadway Junction (A,C,J,L,Z)",1,Brooklyn,62240,"A,C,J,L,Z"
+"Broadway Junction (A,C,J,L,Z)",2,Brooklyn,57933,"A,C,J,L,Z"
+"Broadway-Lafayette St (B,D,F,M)/Bleecker St (6)",1,Manhattan,372601,"B,D,F,M,6"
+"Broadway-Lafayette St (B,D,F,M)/Bleecker St (6)",2,Manhattan,346560,"B,D,F,M,6"
+"Bronx Park East (2,5)",1,Bronx,17270,"2,5"
+"Bronx Park East (2,5)",2,Bronx,16951,"2,5"
+Brook Av (6),1,Bronx,40752,6
+Brook Av (6),2,Bronx,40121,6
+"Brooklyn Bridge-City Hall (4,5,6)/Chambers St (J,Z)",1,Manhattan,234885,"4,5,6,J,Z"
+"Brooklyn Bridge-City Hall (4,5,6)/Chambers St (J,Z)",2,Manhattan,225617,"4,5,6,J,Z"
+"Bryant Pk (B,D,F,M)/5 Av (7)",1,Manhattan,517766,"B,D,F,M,7"
+"Bryant Pk (B,D,F,M)/5 Av (7)",2,Manhattan,474480,"B,D,F,M,7"
+Buhre Av (6),1,Bronx,30274,6
+Buhre Av (6),2,Bronx,28817,6
+"Burke Av (2,5)",1,Bronx,16683,"2,5"
+"Burke Av (2,5)",2,Bronx,17558,"2,5"
+Burnside Av (4),1,Bronx,66797,4
+Burnside Av (4),2,Bronx,65809,4
+Bushwick Av-Aberdeen St (L),1,Brooklyn,21849,L
+Bushwick Av-Aberdeen St (L),2,Brooklyn,21004,L
+Canal St (1),1,Manhattan,50494,1
+Canal St (1),2,Manhattan,46936,1
+"Canal St (A,C,E)",1,Manhattan,172317,"A,C,E"
+"Canal St (A,C,E)",2,Manhattan,162596,"A,C,E"
+"Canal St (J,N,Q,R,W,Z,6)",1,Manhattan,390662,"J,N,Q,R,W,Z,6"
+"Canal St (J,N,Q,R,W,Z,6)",2,Manhattan,352139,"J,N,Q,R,W,Z,6"
+Canarsie-Rockaway Pkwy (L),1,Brooklyn,19527,L
+Canarsie-Rockaway Pkwy (L),2,Brooklyn,19039,L
+"Carroll St (F,G)",1,Brooklyn,131371,"F,G"
+"Carroll St (F,G)",2,Brooklyn,121607,"F,G"
+Castle Hill Av (6),1,Bronx,43352,6
+Castle Hill Av (6),2,Bronx,41202,6
+Cathedral Pkwy (110 St) (1),1,Manhattan,111679,1
+Cathedral Pkwy (110 St) (1),2,Manhattan,109127,1
+"Cathedral Pkwy (110 St) (C,B)",1,Manhattan,66650,"C,B"
+"Cathedral Pkwy (110 St) (C,B)",2,Manhattan,65359,"C,B"
+Central Av (M),1,Brooklyn,37315,M
+Central Av (M),2,Brooklyn,35130,M
+"Central Park North (110 St) (2,3)",1,Manhattan,62414,"2,3"
+"Central Park North (110 St) (2,3)",2,Manhattan,58082,"2,3"
+"Chambers St (1,2,3)",1,Manhattan,178905,"1,2,3"
+"Chambers St (1,2,3)",2,Manhattan,176717,"1,2,3"
+"Chambers St (A,C)/WTC (E)/Park Pl (2,3)/Cortlandt (R,W)",1,Manhattan,581151,"A,C,E,2,3,R,W"
+"Chambers St (A,C)/WTC (E)/Park Pl (2,3)/Cortlandt (R,W)",2,Manhattan,543510,"A,C,E,2,3,R,W"
+"Chauncey St (J,Z)",1,Brooklyn,23791,"J,Z"
+"Chauncey St (J,Z)",2,Brooklyn,22549,"J,Z"
+Christopher St-Sheridan Sq (1),1,Manhattan,92614,1
+Christopher St-Sheridan Sq (1),2,Manhattan,86552,1
+"Church Av (2,5)",1,Brooklyn,80001,"2,5"
+"Church Av (2,5)",2,Brooklyn,75938,"2,5"
+"Church Av (B,Q)",1,Brooklyn,35810,"B,Q"
+"Church Av (B,Q)",2,Brooklyn,52818,"B,Q"
+"Church Av (F,G)",1,Brooklyn,83665,"F,G"
+"Church Av (F,G)",2,Brooklyn,80204,"F,G"
+"City Hall (R,W)",1,Manhattan,46581,"R,W"
+"City Hall (R,W)",2,Manhattan,45821,"R,W"
+"Clark St (2,3)",1,Brooklyn,58829,"2,3"
+"Clark St (2,3)",2,Brooklyn,63666,"2,3"
+Classon Av (G),1,Brooklyn,55268,G
+Classon Av (G),2,Brooklyn,52078,G
+Cleveland St (J),1,Brooklyn,16203,J
+Cleveland St (J),2,Brooklyn,15270,J
+Clinton-Washington Avs (C),1,Brooklyn,75746,C
+Clinton-Washington Avs (C),2,Brooklyn,73526,C
+Clinton-Washington Avs (G),1,Brooklyn,59785,G
+Clinton-Washington Avs (G),2,Brooklyn,58505,G
+"Coney Island-Stillwell Av (D,F,N,Q)",1,Brooklyn,98373,"D,F,N,Q"
+"Coney Island-Stillwell Av (D,F,N,Q)",2,Brooklyn,93330,"D,F,N,Q"
+Cortelyou Rd (Q),1,Brooklyn,58341,Q
+Cortelyou Rd (Q),2,Brooklyn,54734,Q
+"Court Sq (E,G,M,7)",1,Queens,246644,"E,G,M,7"
+"Court Sq (E,G,M,7)",2,Queens,236453,"E,G,M,7"
+"Court St (R)/Borough Hall (2,3,4,5)",1,Brooklyn,272643,"R,2,3,4,5"
+"Court St (R)/Borough Hall (2,3,4,5)",2,Brooklyn,259169,"R,2,3,4,5"
+"Crescent St (J,Z)",1,Brooklyn,31968,"J,Z"
+"Crescent St (J,Z)",2,Brooklyn,30240,"J,Z"
+"Crown Hts-Utica Av (3,4)",1,Brooklyn,207677,"3,4"
+"Crown Hts-Utica Av (3,4)",2,Brooklyn,194581,"3,4"
+Cypress Av (6),1,Bronx,24027,6
+Cypress Av (6),2,Bronx,22368,6
+Cypress Hills (J),1,Brooklyn,4439,J
+Cypress Hills (J),2,Brooklyn,3435,J
+"DeKalb Av (B,Q,R)",1,Brooklyn,198666,"B,Q,R"
+"DeKalb Av (B,Q,R)",2,Brooklyn,193083,"B,Q,R"
+DeKalb Av (L),1,Brooklyn,119247,L
+DeKalb Av (L),2,Brooklyn,110435,L
+"Delancey St (F)/Essex St (J,M,Z)",1,Manhattan,257565,"F,J,M,Z"
+"Delancey St (F)/Essex St (J,M,Z)",2,Manhattan,240687,"F,J,M,Z"
+Ditmas Av (F),1,Brooklyn,34864,F
+Ditmas Av (F),2,Brooklyn,33504,F
+Dyckman St (1),1,Manhattan,56498,1
+Dyckman St (1),2,Manhattan,53562,1
+Dyckman St (A),1,Manhattan,50906,A
+Dyckman St (A),2,Manhattan,48218,A
+E 143 St-St Mary's St (6),1,Bronx,12765,6
+E 143 St-St Mary's St (6),2,Bronx,11907,6
+E 149 St (6),1,Bronx,35224,6
+E 149 St (6),2,Bronx,33906,6
+"E 180 St (2,5)",1,Bronx,60101,"2,5"
+"E 180 St (2,5)",2,Bronx,57042,"2,5"
+East 105 St (L),1,Brooklyn,21979,L
+East 105 St (L),2,Brooklyn,20506,L
+East Broadway (F),1,Manhattan,131028,F
+East Broadway (F),2,Manhattan,120739,F
+Eastchester-Dyre Av (5),1,Bronx,28855,5
+Eastchester-Dyre Av (5),2,Bronx,28417,5
+"Eastern Pkwy-Brooklyn Museum (2,3)",1,Brooklyn,44850,"2,3"
+"Eastern Pkwy-Brooklyn Museum (2,3)",2,Brooklyn,39740,"2,3"
+Elder Av (6),1,Bronx,39354,6
+Elder Av (6),2,Bronx,39524,6
+"Elmhurst Av (M,R)",1,Queens,118003,"M,R"
+"Elmhurst Av (M,R)",2,Queens,110376,"M,R"
+"Euclid Av (A,C)",1,Brooklyn,77510,"A,C"
+"Euclid Av (A,C)",2,Brooklyn,71973,"A,C"
+Far Rockaway-Mott Av (A),1,Queens,19185,A
+Far Rockaway-Mott Av (A),2,Queens,8,A
+"Flatbush Av-Brooklyn College (2,5)",1,Brooklyn,149843,"2,5"
+"Flatbush Av-Brooklyn College (2,5)",2,Brooklyn,150215,"2,5"
+Flushing Av (G),1,Brooklyn,32300,G
+Flushing Av (G),2,Brooklyn,30730,G
+"Flushing Av (M,J)",1,Brooklyn,71843,"M,J"
+"Flushing Av (M,J)",2,Brooklyn,67767,"M,J"
+Flushing-Main St (7),1,Queens,503508,7
+Flushing-Main St (7),2,Queens,468039,7
+Fordham Rd (4),1,Bronx,61130,4
+Fordham Rd (4),2,Bronx,61378,4
+"Fordham Rd (B,D)",1,Bronx,62749,"B,D"
+"Fordham Rd (B,D)",2,Bronx,60944,"B,D"
+Forest Av (M),1,Queens,41295,M
+Forest Av (M),2,Queens,38127,M
+"Forest Hills-71 Av (E,F,M,R)",1,Queens,232952,"E,F,M,R"
+"Forest Hills-71 Av (E,F,M,R)",2,Queens,220133,"E,F,M,R"
+Fort Hamilton Pkwy (D),1,Brooklyn,40825,D
+Fort Hamilton Pkwy (D),2,Brooklyn,38602,D
+"Fort Hamilton Pkwy (F,G)",1,Brooklyn,63401,"F,G"
+"Fort Hamilton Pkwy (F,G)",2,Brooklyn,57185,"F,G"
+Fort Hamilton Pkwy (N),1,Brooklyn,62491,N
+Fort Hamilton Pkwy (N),2,Brooklyn,60093,N
+"Franklin Av (2,3,4,5)/Botanic Garden (S)",1,Brooklyn,136524,"2,3,4,5,S"
+"Franklin Av (2,3,4,5)/Botanic Garden (S)",2,Brooklyn,130247,"2,3,4,5,S"
+"Franklin Av (C,S)",1,Brooklyn,50109,"C,S"
+"Franklin Av (C,S)",2,Brooklyn,47953,"C,S"
+Franklin St (1),1,Manhattan,58743,1
+Franklin St (1),2,Manhattan,55118,1
+"Freeman St (2,5)",1,Bronx,32979,"2,5"
+"Freeman St (2,5)",2,Bronx,30970,"2,5"
+Fresh Pond Rd (M),1,Queens,52624,M
+Fresh Pond Rd (M),2,Queens,48533,M
+"Fulton St (A,C,J,Z,2,3,4,5)",1,Manhattan,835476,"A,C,J,Z,2,3,4,5"
+"Fulton St (A,C,J,Z,2,3,4,5)",2,Manhattan,790315,"A,C,J,Z,2,3,4,5"
+Fulton St (G),1,Brooklyn,59623,G
+Fulton St (G),2,Brooklyn,52396,G
+"Gates Av (J,Z)",1,Brooklyn,58795,"J,Z"
+"Gates Av (J,Z)",2,Brooklyn,55398,"J,Z"
+Graham Av (L),1,Brooklyn,97750,L
+Graham Av (L),2,Brooklyn,90282,L
+"Grand Army Plaza (2,3)",1,Brooklyn,74710,"2,3"
+"Grand Army Plaza (2,3)",2,Brooklyn,68172,"2,3"
+"Grand Av-Newtown (M,R)",1,Queens,168693,"M,R"
+"Grand Av-Newtown (M,R)",2,Queens,159573,"M,R"
+"Grand Central-42 St (S,4,5,6,7)",1,Manhattan,1587648,"S,4,5,6,7"
+"Grand Central-42 St (S,4,5,6,7)",2,Manhattan,1455317,"S,4,5,6,7"
+"Grand St (B,D)",1,Manhattan,190033,"B,D"
+"Grand St (B,D)",2,Manhattan,173585,"B,D"
+Grand St (L),1,Brooklyn,63687,L
+Grand St (L),2,Brooklyn,59387,L
+Grant Av (A),1,Brooklyn,42317,A
+Grant Av (A),2,Brooklyn,40589,A
+Greenpoint Av (G),1,Brooklyn,110437,G
+Greenpoint Av (G),2,Brooklyn,103728,G
+"Gun Hill Rd (2,5)",1,Bronx,41793,"2,5"
+"Gun Hill Rd (2,5)",2,Bronx,39742,"2,5"
+Gun Hill Rd (5),1,Bronx,30547,5
+Gun Hill Rd (5),2,Bronx,29895,5
+Halsey St (J),1,Brooklyn,50109,J
+Halsey St (J),2,Brooklyn,48278,J
+Halsey St (L),1,Queens,77428,L
+Halsey St (L),2,Queens,74570,L
+Harlem-148 St (3),1,Manhattan,26794,3
+Harlem-148 St (3),2,Manhattan,24536,3
+"Hewes St (M,J)",1,Brooklyn,25550,"M,J"
+"Hewes St (M,J)",2,Brooklyn,23307,"M,J"
+"High St (A,C)",1,Brooklyn,79062,"A,C"
+"High St (A,C)",2,Brooklyn,73685,"A,C"
+Houston St (1),1,Manhattan,145935,1
+Houston St (1),2,Manhattan,142203,1
+Howard Beach-JFK Airport (A),1,Queens,45334,A
+Howard Beach-JFK Airport (A),2,Queens,66912,A
+"Hoyt St (2,3)",1,Brooklyn,71514,"2,3"
+"Hoyt St (2,3)",2,Brooklyn,66238,"2,3"
+"Hoyt-Schermerhorn Sts (A,C,G)",1,Brooklyn,108566,"A,C,G"
+"Hoyt-Schermerhorn Sts (A,C,G)",2,Brooklyn,100092,"A,C,G"
+Hunters Point Av (7),1,Queens,49880,7
+Hunters Point Av (7),2,Queens,46417,7
+Hunts Point Av (6),1,Bronx,73123,6
+Hunts Point Av (6),2,Bronx,71229,6
+"Intervale Av (2,5)",1,Bronx,21019,"2,5"
+"Intervale Av (2,5)",2,Bronx,20070,"2,5"
+Inwood-207 St (A),1,Manhattan,72174,A
+Inwood-207 St (A),2,Manhattan,68366,A
+"Jackson Av (2,5)",1,Bronx,39519,"2,5"
+"Jackson Av (2,5)",2,Bronx,37680,"2,5"
+"Jamaica Center-Parsons/Archer (E,J,Z)",1,Queens,238291,"E,J,Z"
+"Jamaica Center-Parsons/Archer (E,J,Z)",2,Queens,231307,"E,J,Z"
+Jamaica-179 St (F),1,Queens,151164,F
+Jamaica-179 St (F),2,Queens,142544,F
+Jamaica-Van Wyck (E),1,Queens,41472,E
+Jamaica-Van Wyck (E),2,Queens,38689,E
+"Jay St-MetroTech (A,C,F,R)",1,Brooklyn,303539,"A,C,F,R"
+"Jay St-MetroTech (A,C,F,R)",2,Brooklyn,319951,"A,C,F,R"
+Jefferson St (L),1,Brooklyn,83125,L
+Jefferson St (L),2,Brooklyn,76937,L
+Junction Blvd (7),1,Queens,214412,7
+Junction Blvd (7),2,Queens,195055,7
+Junius St (3),1,Brooklyn,20830,3
+Junius St (3),2,Brooklyn,19434,3
+"Kew Gardens-Union Tpke (E,F)",1,Queens,199298,"E,F"
+"Kew Gardens-Union Tpke (E,F)",2,Queens,185636,"E,F"
+"Kings Hwy (B,Q)",1,Brooklyn,166260,"B,Q"
+"Kings Hwy (B,Q)",2,Brooklyn,160385,"B,Q"
+Kings Hwy (F),1,Brooklyn,32536,F
+Kings Hwy (F),2,Brooklyn,30627,F
+Kings Hwy (N),1,Brooklyn,51159,N
+Kings Hwy (N),2,Brooklyn,50044,N
+Kingsbridge Rd (4),1,Bronx,59348,4
+Kingsbridge Rd (4),2,Bronx,58420,4
+"Kingsbridge Rd (B,D)",1,Bronx,45508,"B,D"
+"Kingsbridge Rd (B,D)",2,Bronx,44024,"B,D"
+Kingston Av (3),1,Brooklyn,38414,3
+Kingston Av (3),2,Brooklyn,36330,3
+Kingston-Throop Avs (C),1,Brooklyn,59425,C
+Kingston-Throop Avs (C),2,Brooklyn,57759,C
+Knickerbocker Av (M),1,Brooklyn,39728,M
+Knickerbocker Av (M),2,Brooklyn,36187,M
+Kosciuszko St (J),1,Brooklyn,49702,J
+Kosciuszko St (J),2,Brooklyn,47072,J
+Lafayette Av (C),1,Brooklyn,46407,C
+Lafayette Av (C),2,Brooklyn,43683,C
+"Lexington Av (N,R,W)/59 St (4,5,6)",1,Manhattan,485506,"N,R,W,4,5,6"
+"Lexington Av (N,R,W)/59 St (4,5,6)",2,Manhattan,450608,"N,R,W,4,5,6"
+"Lexington Av-53 St (E,M)/51 St (6)",1,Manhattan,582249,"E,M,6"
+"Lexington Av-53 St (E,M)/51 St (6)",2,Manhattan,541254,"E,M,6"
+"Lexington Av/63 St (F,Q)",1,Manhattan,176137,"F,Q"
+"Lexington Av/63 St (F,Q)",2,Manhattan,167953,"F,Q"
+Liberty Av (C),1,Brooklyn,18533,C
+Liberty Av (C),2,Brooklyn,17481,C
+Livonia Av (L),1,Brooklyn,24219,L
+Livonia Av (L),2,Brooklyn,22983,L
+Longwood Av (6),1,Bronx,25214,6
+Longwood Av (6),2,Bronx,24296,6
+Lorimer St (L)/Metropolitan Av (G),1,Brooklyn,155243,"L,G"
+Lorimer St (L)/Metropolitan Av (G),2,Brooklyn,147541,"L,G"
+"Lorimer St (M,J)",1,Brooklyn,38087,"M,J"
+"Lorimer St (M,J)",2,Brooklyn,35489,"M,J"
+Marble Hill-225 St (1),1,Manhattan,39364,1
+Marble Hill-225 St (1),2,Manhattan,37479,1
+"Marcy Av (M,J,Z)",1,Brooklyn,115673,"M,J,Z"
+"Marcy Av (M,J,Z)",2,Brooklyn,109645,"M,J,Z"
+Mets-Willets Point (7),1,Queens,21345,7
+Mets-Willets Point (7),2,Queens,19035,7
+Middle Village-Metropolitan Av (M),1,Queens,36504,M
+Middle Village-Metropolitan Av (M),2,Queens,33820,M
+Middletown Rd (6),1,Bronx,16400,6
+Middletown Rd (6),2,Bronx,15622,6
+Montrose Av (L),1,Brooklyn,64956,L
+Montrose Av (L),2,Brooklyn,61567,L
+Morgan Av (L),1,Brooklyn,67854,L
+Morgan Av (L),2,Brooklyn,66239,L
+Morris Park (5),1,Bronx,21197,5
+Morris Park (5),2,Bronx,21178,5
+Morrison Av-Soundview (6),1,Bronx,39206,6
+Morrison Av-Soundview (6),2,Bronx,39006,6
+Mosholu Pkwy (4),1,Bronx,51346,4
+Mosholu Pkwy (4),2,Bronx,48221,4
+Mt Eden Av (4),1,Bronx,34730,4
+Mt Eden Av (4),2,Bronx,32652,4
+"Myrtle Av (M,J,Z)",1,Brooklyn,103756,"M,J,Z"
+"Myrtle Av (M,J,Z)",2,Brooklyn,98895,"M,J,Z"
+Myrtle-Willoughby Avs (G),1,Brooklyn,52210,G
+Myrtle-Willoughby Avs (G),2,Brooklyn,48693,G
+"Myrtle-Wyckoff Avs (L,M)",1,Brooklyn,195963,"L,M"
+"Myrtle-Wyckoff Avs (L,M)",2,Brooklyn,185334,"L,M"
+Nassau Av (G),1,Brooklyn,103383,G
+Nassau Av (G),2,Brooklyn,96606,G
+Neck Rd (Q),1,Brooklyn,41560,Q
+Neck Rd (Q),2,Brooklyn,40571,Q
+Neptune Av (F),1,Brooklyn,12444,F
+Neptune Av (F),2,Brooklyn,11793,F
+"Nereid Av (2,5)",1,Bronx,19890,"2,5"
+"Nereid Av (2,5)",2,Bronx,19370,"2,5"
+"Nevins St (2,3,4,5)",1,Brooklyn,84722,"2,3,4,5"
+"Nevins St (2,3,4,5)",2,Brooklyn,79970,"2,3,4,5"
+New Lots Av (3),1,Brooklyn,39013,3
+New Lots Av (3),2,Brooklyn,36985,3
+New Lots Av (L),1,Brooklyn,26690,L
+New Lots Av (L),2,Brooklyn,26385,L
+New Utrecht Av (N)/62 St (D),1,Brooklyn,45982,"N,D"
+New Utrecht Av (N)/62 St (D),2,Brooklyn,42572,"N,D"
+"Newkirk Av-Little Haiti (2,5)",1,Brooklyn,58335,"2,5"
+"Newkirk Av-Little Haiti (2,5)",2,Brooklyn,56199,"2,5"
+"Newkirk Plaza (B,Q)",1,Brooklyn,81873,"B,Q"
+"Newkirk Plaza (B,Q)",2,Brooklyn,77585,"B,Q"
+"Northern Blvd (M,R)",1,Queens,60704,"M,R"
+"Northern Blvd (M,R)",2,Queens,57790,"M,R"
+"Norwood Av (J,Z)",1,Brooklyn,17519,"J,Z"
+"Norwood Av (J,Z)",2,Brooklyn,18268,"J,Z"
+Norwood-205 St (D),1,Bronx,47263,D
+Norwood-205 St (D),2,Bronx,47224,D
+Nostrand Av (3),1,Brooklyn,31787,3
+Nostrand Av (3),2,Brooklyn,29110,3
+"Nostrand Av (A,C)",1,Brooklyn,160331,"A,C"
+"Nostrand Av (A,C)",2,Brooklyn,155607,"A,C"
+Ocean Pkwy (Q),1,Brooklyn,24367,Q
+Ocean Pkwy (Q),2,Brooklyn,23089,Q
+Ozone Park-Lefferts Blvd (A),1,Queens,45802,A
+Ozone Park-Lefferts Blvd (A),2,Queens,43739,A
+Park Pl (S),1,Brooklyn,16494,S
+Park Pl (S),2,Brooklyn,15120,S
+Parkchester (6),1,Bronx,91129,6
+Parkchester (6),2,Bronx,87264,6
+Parkside Av (Q),1,Brooklyn,107119,Q
+Parkside Av (Q),2,Brooklyn,89913,Q
+Parsons Blvd (F),1,Queens,52262,F
+Parsons Blvd (F),2,Queens,48972,F
+Pelham Bay Park (6),1,Bronx,44363,6
+Pelham Bay Park (6),2,Bronx,41352,6
+"Pelham Pkwy (2,5)",1,Bronx,53850,"2,5"
+"Pelham Pkwy (2,5)",2,Bronx,52574,"2,5"
+Pelham Pkwy (5),1,Bronx,24724,5
+Pelham Pkwy (5),2,Bronx,24053,5
+Pennsylvania Av (3),1,Brooklyn,27898,3
+Pennsylvania Av (3),2,Brooklyn,26473,3
+"President St-Medgar Evers College (2,5)",1,Brooklyn,32506,"2,5"
+"President St-Medgar Evers College (2,5)",2,Brooklyn,31083,"2,5"
+"Prince St (R,W)",1,Manhattan,103409,"R,W"
+"Prince St (R,W)",2,Manhattan,97155,"R,W"
+"Prospect Av (2,5)",1,Bronx,47368,"2,5"
+"Prospect Av (2,5)",2,Bronx,44767,"2,5"
+Prospect Av (R),1,Brooklyn,61006,R
+Prospect Av (R),2,Brooklyn,56000,R
+"Prospect Park (B,Q,S)",1,Brooklyn,86101,"B,Q,S"
+"Prospect Park (B,Q,S)",2,Brooklyn,79924,"B,Q,S"
+"Queens Plaza (E,M,R)",1,Queens,146657,"E,M,R"
+"Queens Plaza (E,M,R)",2,Queens,145291,"E,M,R"
+"Queensboro Plaza (7,N,W)",1,Queens,113261,"7,N,W"
+"Queensboro Plaza (7,N,W)",2,Queens,110647,"7,N,W"
+Ralph Av (C),1,Brooklyn,42170,C
+Ralph Av (C),2,Brooklyn,40866,C
+Rector St (1),1,Manhattan,69858,1
+Rector St (1),2,Manhattan,64696,1
+"Rector St (R,W)",1,Manhattan,48917,"R,W"
+"Rector St (R,W)",2,Manhattan,46783,"R,W"
+Rockaway Av (3),1,Brooklyn,36791,3
+Rockaway Av (3),2,Brooklyn,34186,3
+Rockaway Av (C),1,Brooklyn,46573,C
+Rockaway Av (C),2,Brooklyn,44790,C
+Rockaway Blvd (A),1,Queens,57555,A
+Rockaway Blvd (A),2,Queens,59547,A
+"Rockaway Park-Beach 116 St (A,S)",1,Queens,2611,"A,S"
+Roosevelt Island (F),1,Manhattan,75241,F
+Roosevelt Island (F),2,Manhattan,69080,F
+Saratoga Av (3),1,Brooklyn,39987,3
+Saratoga Av (3),2,Brooklyn,38954,3
+Seneca Av (M),1,Queens,26479,M
+Seneca Av (M),2,Queens,24894,M
+"Sheepshead Bay (B,Q)",1,Brooklyn,112747,"B,Q"
+"Sheepshead Bay (B,Q)",2,Brooklyn,108391,"B,Q"
+Shepherd Av (C),1,Brooklyn,19835,C
+Shepherd Av (C),2,Brooklyn,19361,C
+"Simpson St (2,5)",1,Bronx,55385,"2,5"
+"Simpson St (2,5)",2,Bronx,55288,"2,5"
+"Smith-9 Sts (F,G)",1,Brooklyn,39223,"F,G"
+"Smith-9 Sts (F,G)",2,Brooklyn,36433,"F,G"
+"South Ferry (1)/Whitehall St (R,W)",1,Manhattan,241655,"1,R,W"
+"South Ferry (1)/Whitehall St (R,W)",2,Manhattan,220487,"1,R,W"
+Spring St (6),1,Manhattan,106324,6
+Spring St (6),2,Manhattan,95659,6
+"Spring St (C,E)",1,Manhattan,149517,"C,E"
+"Spring St (C,E)",2,Manhattan,141784,"C,E"
+St Lawrence Av (6),1,Bronx,25205,6
+St Lawrence Av (6),2,Bronx,25171,6
+"Steinway St (M,R)",1,Queens,109973,"M,R"
+"Steinway St (M,R)",2,Queens,104120,"M,R"
+"Sterling St (2,5)",1,Brooklyn,52069,"2,5"
+"Sterling St (2,5)",2,Brooklyn,48835,"2,5"
+Sutphin Blvd (F),1,Queens,32607,F
+Sutphin Blvd (F),2,Queens,30946,F
+"Sutphin Blvd-Archer Av-JFK Airport (E,J,Z)",1,Queens,221409,"E,J,Z"
+"Sutphin Blvd-Archer Av-JFK Airport (E,J,Z)",2,Queens,202722,"E,J,Z"
+Sutter Av (L),1,Brooklyn,26848,L
+Sutter Av (L),2,Brooklyn,23846,L
+Sutter Av-Rutland Rd (3),1,Brooklyn,47493,3
+Sutter Av-Rutland Rd (3),2,Brooklyn,45624,3
+"Times Sq-42 St (N,Q,R,W,S,1,2,3,7)/42 St (A,C,E)",1,Manhattan,1670789,"N,Q,R,W,S,1,2,3,7,A,C,E"
+"Times Sq-42 St (N,Q,R,W,S,1,2,3,7)/42 St (A,C,E)",2,Manhattan,1584405,"N,Q,R,W,S,1,2,3,7,A,C,E"
+"Tremont Av (B,D)",1,Bronx,65012,"B,D"
+"Tremont Av (B,D)",2,Bronx,61054,"B,D"
+Union St (R),1,Brooklyn,77123,R
+Union St (R),2,Brooklyn,71014,R
+"Utica Av (A,C)",1,Brooklyn,127569,"A,C"
+"Utica Av (A,C)",2,Brooklyn,123661,"A,C"
+Van Cortlandt Park-242 St (1),1,Bronx,50715,1
+Van Cortlandt Park-242 St (1),2,Bronx,49756,1
+Van Siclen Av (3),1,Brooklyn,17147,3
+Van Siclen Av (3),2,Brooklyn,16864,3
+Van Siclen Av (C),1,Brooklyn,23368,C
+Van Siclen Av (C),2,Brooklyn,22293,C
+"Van Siclen Av (J,Z)",1,Brooklyn,21121,"J,Z"
+"Van Siclen Av (J,Z)",2,Brooklyn,21292,"J,Z"
+Vernon Blvd-Jackson Av (7),1,Queens,171257,7
+Vernon Blvd-Jackson Av (7),2,Queens,156900,7
+"W 4 St-Wash Sq (A,C,E,B,D,F,M)",1,Manhattan,349310,"A,C,E,B,D,F,M"
+"W 4 St-Wash Sq (A,C,E,B,D,F,M)",2,Manhattan,343823,"A,C,E,B,D,F,M"
+"W 8 St-NY Aquarium (F,Q)",1,Brooklyn,17160,"F,Q"
+"W 8 St-NY Aquarium (F,Q)",2,Brooklyn,16025,"F,Q"
+WTC Cortlandt (1),1,Manhattan,161163,1
+WTC Cortlandt (1),2,Manhattan,145441,1
+Wakefield-241 St (2),1,Bronx,28705,2
+Wakefield-241 St (2),2,Bronx,28112,2
+"Wall St (2,3)",1,Manhattan,199445,"2,3"
+"Wall St (2,3)",2,Manhattan,186257,"2,3"
+"Wall St (4,5)",1,Manhattan,165785,"4,5"
+"Wall St (4,5)",2,Manhattan,153612,"4,5"
+"West Farms Sq-E Tremont Av (2,5)",1,Bronx,40046,"2,5"
+"West Farms Sq-E Tremont Av (2,5)",2,Bronx,38881,"2,5"
+Westchester Sq-E Tremont Av (6),1,Bronx,31636,6
+Westchester Sq-E Tremont Av (6),2,Bronx,31527,6
+Whitlock Av (6),1,Bronx,13728,6
+Whitlock Av (6),2,Bronx,13336,6
+Wilson Av (L),1,Brooklyn,39241,L
+Wilson Av (L),2,Brooklyn,37918,L
+"Winthrop St (2,5)",1,Brooklyn,73138,"2,5"
+"Winthrop St (2,5)",2,Brooklyn,70286,"2,5"
+"Woodhaven Blvd (J,Z)",1,Queens,38225,"J,Z"
+"Woodhaven Blvd (J,Z)",2,Queens,38755,"J,Z"
+"Woodhaven Blvd (M,R)",1,Queens,159768,"M,R"
+"Woodhaven Blvd (M,R)",2,Queens,149903,"M,R"
+Woodlawn (4),1,Bronx,45379,4
+Woodlawn (4),2,Bronx,42983,4
+York St (F),1,Brooklyn,129542,F
+York St (F),2,Brooklyn,119010,F
+Zerega Av (6),1,Bronx,19757,6
+Zerega Av (6),2,Bronx,18760,6
