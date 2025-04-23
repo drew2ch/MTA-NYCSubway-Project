@@ -1,0 +1,300 @@
+---
+title: "EDA_Apr22"
+author: "Andrew Chung"
+date: "2025-04-23"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exploratory Data Analysis, April 22
+
+Andrew Chung, hc893
+
+BTRY 4100 Final Project -- Exploratory Data Analysis.
+
+## Line Performance Metrics Data EDA
+
+```{r}
+line_data = read.csv("C:\\Users\\hychu\\OneDrive\\Desktop\\SP25\\_BTRY_4100\\_FINAL_PROJECT\\MTA-NYCSubway-Project\\datasets\\MTA_Subway_Line_Data_2025_Apr21.csv")[, -1]
+line_data$month = as.numeric(format(as.POSIXct(line_data$month, format = "%Y-%m-%d"), "%m"))
+head(line_data)
+
+line_data_jan = line_data[line_data$month == 1, ]
+line_data_feb = line_data[line_data$month == 2, ]
+```
+
+### Monthly Passenger Volume
+
+```{r}
+library(ggplot2)
+library(gridExtra)
+plot_jan = ggplot(line_data_jan, aes(x = reorder(line, -num_passengers), y = num_passengers)) + geom_bar(stat = "identity") + labs(
+    x = "Subway Line",
+    y = "Passenger Volume",
+    title = "Jan 2025" # Chart title
+)
+plot_feb = ggplot(line_data_feb, aes(x = reorder(line, -num_passengers), y = num_passengers)) + geom_bar(stat = "identity") + labs(
+    x = "Subway Line",
+    y = "Passenger Volume",
+    title = "Feb 2025" # Chart title
+)
+plot_combined = ggplot(line_data, aes(x = reorder(line, -num_passengers), y = num_passengers)) + geom_bar(stat = "identity") + labs(
+    x = "Subway Line",
+    y = "Passenger Volume",
+    title = "Combined Passenger Volume" # Chart title
+)
+grid.arrange(plot_jan, plot_feb, plot_combined, nrow = 1)
+```
+
+### Change in Daily Passenger Volume from Jan to Feb
+
+```{r}
+library(tidyverse)
+delta_data = merge(
+  line_data_jan[, c("line", "num_passengers")],
+  line_data_feb[, c("line", "num_passengers")],
+  by = "line"
+) %>%
+  rename(
+    jan = num_passengers.x,
+    feb = num_passengers.y
+  ) %>%
+  mutate(jan = jan/31, feb = feb/28) %>%
+  mutate(percent_change = 100 * (feb-jan)/jan)
+ggplot(delta_data, aes(x = reorder(line, -percent_change), y = percent_change)) + geom_bar(stat = "identity") + labs(
+    x = "Subway Line",
+    y = "Percent Change",
+    title = "Percent Change of Daily Ridership" # Chart title
+)
+```
+
+### Customer Journey Metrics and Percent-based Performance Metrics
+
+```{r}
+par(mfrow = c(2,4), oma = c(0, 0, 3, 0))
+for (metric in colnames(line_data_jan)[4:10]){
+  boxplot(line_data_jan[, metric], main = metric)
+}
+mtext("January", side = 3, line = 1, outer = TRUE, cex = 1, font = 2)
+
+plot.new()
+par(mfrow = c(2,4), oma = c(0, 0, 3, 0))
+for (metric in colnames(line_data_jan)[4:10]){
+  boxplot(line_data_feb[, metric], main = metric)
+}
+mtext("February", side = 3, line = 1, outer = TRUE, cex = 1, font = 2)
+```
+
+### Incident Count by Line
+
+```{r}
+# Create your individual ggplot barplots
+plot1 <- ggplot(line_data, aes(x = reorder(line, -infra_critical), y = infra_critical)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Critical Infrastructure"
+  )
+
+plot2 <- ggplot(line_data, aes(x = reorder(line, -noninfra_critical), y = noninfra_critical)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Critical Non-Infrastructure"
+  )
+
+plot3 <- ggplot(subset(line_data, infra_noncritical > 0), aes(x = reorder(line, -infra_noncritical), y = infra_noncritical)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Non-Critical Infrastructure"
+  )
+
+plot4 <- ggplot(subset(line_data, noninfra_noncritical > 0), aes(x = reorder(line, -noninfra_noncritical), y = noninfra_noncritical)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Non-Critical Non-Infrastructure"
+  )
+
+# Arrange the plots in a 2x2 grid
+grid.arrange(plot1, plot2, plot3, plot4, nrow = 2, ncol = 2)
+```
+
+### Some Correlation Examination
+
+```{r}
+# row/cols in order: additional_platform_time, additional_train_time, over_five_mins_perc, wait_assessment, service_delivered, terminal_on_time_performance, percent_late
+unname(cor(line_data[, colnames(line_data_jan)[4:10]]))
+```
+
+```{r}
+ggplot(line_data, aes(x = wait_assessment, y = service_delivered, color = line)) +
+  geom_point() +
+  theme(legend.position = "none") +
+labs(x = "Wait Assessment", y = "Service Delivered")
+```
+
+```{r}
+ggplot(line_data, aes(x = additional_platform_time, y = additional_train_time)) +
+  geom_point(alpha = .7) +
+  facet_wrap(~ month) +
+  labs(x = "Additional Platform Time (min)", 
+       y = "Additional Train Time (min)")
+```
+
+```{r}
+df_long_inc <- line_data %>% 
+  select(line, month, infra_critical:noninfra_noncritical) %>% 
+  pivot_longer(cols = infra_critical:noninfra_noncritical,
+               names_to = "category", values_to = "count")
+
+df_long_inc %>% 
+  ggplot(aes(x = line, y = count, fill = category)) +
+  geom_col(position = "stack") +
+  facet_wrap(~ month) +
+  coord_flip() +
+  labs(x = "Line", y = "Incident Count", fill = "Category")
+
+# 4b) Incidents per million riders
+df_inc_rate <- line_data %>% 
+  mutate_at(vars(infra_critical:noninfra_noncritical), 
+            ~ . / num_passengers * 1e6)
+
+df_inc_rate %>% 
+  select(line, month, infra_critical:noninfra_noncritical) %>% 
+  pivot_longer(cols = infra_critical:noninfra_noncritical,
+               names_to = "cat", values_to = "rate") %>% 
+  ggplot(aes(x = rate, y = reorder(line, rate), color = cat)) +
+  geom_point() +
+  facet_wrap(~ month) +
+  labs(x = "Incidents per Million Riders", y = "Line")
+```
+
+### PCA
+
+```{r}
+library(FactoMineR)   # for PCA
+library(factoextra)   # for PCA visualization
+
+cont.vars = line_data[, colnames(line_data_jan)[4:10]]
+res.pca = PCA(cont.vars, graph = FALSE)
+fviz_eig(res.pca)
+#fviz_pca_ind(res.pca, 
+             #geom.ind = "point", 
+             #habillage = line_data$line, 
+             #repel = TRUE) +
+  #labs(title = "PCA: Lines in PC space")
+```
+
+```{r}
+line_data %>% 
+  filter(line %in% unique(line_data$line)) %>% 
+  select(line, month, additional_train_time) %>% 
+  ggplot(aes(x = month, y = additional_train_time, group = line)) +
+  geom_line(alpha = .6) +
+  geom_point() +
+  labs(x = "Month", y = "Additional Train Time (min)")
+```
+
+## Station Ridership Data EDA
+
+```{r}
+ridership_data = read.csv("C:\\Users\\hychu\\OneDrive\\Desktop\\SP25\\_BTRY_4100\\_FINAL_PROJECT\\MTA-NYCSubway-Project\\datasets\\MTA_Subway_Ridership_Summarized_Apr21.csv") %>%
+  mutate(
+    lines_count = str_count(lines, ",") + 1
+  )
+ridership_data_jan = ridership_data[ridership_data$month == 1, ]
+ridership_data_feb = ridership_data[ridership_data$month == 2, ]
+
+ridership_data_jan = ridership_data_jan[ridership_data_jan$station_complex %in% intersect(
+  ridership_data_jan$station_complex,
+  ridership_data_feb$station_complex
+), ]
+head(ridership_data)
+```
+
+```{r}
+stations_jan = unique(ridership_data_jan$station_complex)
+stations_feb = unique(ridership_data_feb$station_complex)
+setdiff(stations_jan, stations_feb) # to be removed
+```
+
+```{r}
+# 1a) Histogram (log-scale) of ridership
+ggplot(ridership_data_jan, aes(x = ridership)) +
+  geom_histogram(bins = 50, fill = "steelblue", color = "white") +
+  scale_x_log10() +
+  labs(title = "Distribution of January Ridership\n(log scale)",
+       x = "Ridership (log10)", y = "Count")
+ggplot(ridership_data_feb, aes(x = ridership)) +
+  geom_histogram(bins = 50, fill = "steelblue", color = "white") +
+  scale_x_log10() +
+  labs(title = "Distribution of February Ridership\n(log scale)",
+       x = "Ridership (log10)", y = "Count")
+
+ggplot(ridership_data_jan, aes(x = borough, y = ridership)) +
+  geom_boxplot(fill = "lightgreen") +
+  scale_y_log10() +
+  labs(title = "Jan Ridership by Borough", x = "Borough", y = "Ridership (log10)")
+ggplot(ridership_data_feb, aes(x = borough, y = ridership)) +
+  geom_boxplot(fill = "lightgreen") +
+  scale_y_log10() +
+  labs(title = "Feb Ridership by Borough", x = "Borough", y = "Ridership (log10)")
+```
+
+```{r}
+# Boxplot of ridership by how many lines serve the station
+ggplot(ridership_data, aes(x = factor(lines_count), y = ridership)) +
+  geom_boxplot(fill = "lightcoral") +
+  scale_y_log10() +
+  labs(title = "Ridership vs. Number of Lines",
+       x = "Number of Lines", y = "Ridership (log10)")
+
+df_diff = data.frame(
+  station_complex = ridership_data_feb$station_complex,
+  jan = ridership_data_jan[order(ridership_data_jan$station_complex), ]$ridership,
+  feb = ridership_data_feb[order(ridership_data_feb$station_complex), ]$ridership
+)
+
+ggplot(df_diff, aes(x = jan, y = feb)) +
+  geom_point(alpha = 0.6) +
+  #geom_smooth(method = "lm", se = FALSE, color = "darkred") +
+  scale_x_log10() + scale_y_log10() +
+  labs(title = "Jan vs. Feb Ridership per Station",
+       x = "Jan Ridership (log10)", y = "Feb Ridership (log10)")
+```
+
+```{r}
+# MONTH-TO-MONTH CHANGE
+df_delta <- df_diff %>%
+  mutate(
+    pct_change = (feb - jan) / jan * 100
+  )
+
+# Bar chart of % change
+ggplot(df_delta, aes(x = reorder(station_complex, pct_change), y = pct_change)) +
+  geom_col(fill = "skyblue") +
+  coord_flip() +
+  labs(title = "% Change in Ridership (Feb vs Jan)",
+       x = "Station", y = "% Change")
+
+
+# PAIRED-POINT PLOT
+# show how each station moved from Jan→Feb
+ggplot(ridership_data, aes(x = month, y = ridership, group = station_complex)) +
+  geom_line(alpha = 0.2) +
+  geom_point(alpha = 0.6, size = 0.5) +
+  scale_y_log10() +
+  labs(title = "Station-level Jan - Feb Ridership",
+       x = "Month", y = "Ridership (log10)")
+```
+
+
