@@ -101,4 +101,5 @@ def main():
 
   print("Successfully saved to .csv.")
 
-  
+if __name__ == "__main__":
+  main()
