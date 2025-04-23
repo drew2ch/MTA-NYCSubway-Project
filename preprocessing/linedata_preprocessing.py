@@ -48,7 +48,7 @@ def main():
     "period == \"peak\" & line not in ['W', 'S Rock']"
   ).reset_index().drop(columns = ['division', 'index', 'period'])
   customer_journey_data = impute(customer_journey_data).groupby(['line', 'month']).agg({
-    #'num_passengers': 'sum', # sum over 2 months
+    'num_passengers': 'sum', # sum over 2 months
     'additional platform time': 'mean', 
     'additional train time': 'mean', 
     'over_five_mins_perc': 'mean'
