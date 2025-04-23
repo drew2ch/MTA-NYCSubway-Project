@@ -52,7 +52,7 @@ def main():
 
   # assign weighted metrics to ridership data, name it "composite_data_weighted"
   # weights for relative subway ridership computed by ridership numbers
-  composite_data_weighted = ridership_data.assign(**{col: None for col in np.append(metrics, ['line_weight'])})
+  composite_data_weighted = ridership_data.assign(**{col: None for col in metrics})
 
   # helper function to resolve confusions with N/W and J/Z lines
   def impute_lines(lines):
