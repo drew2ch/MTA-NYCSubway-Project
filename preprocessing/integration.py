@@ -77,7 +77,7 @@ def main():
 
   print("Computing unweighted and weighted composite datasets...")
 
-  # fill in performance data (unweighted)
+  # fill in performance data (unweighted and weighted have identical indices)
   for idx, row in composite_data_unweighted.iterrows():
 
     lines_arr = impute_lines(np.array(row['lines'].split(',')))
