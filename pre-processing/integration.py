@@ -31,16 +31,22 @@ def main():
   # fix shuttle designations
   # aggregate by line complexes
   ridership_data = pd.read_csv(
-    "MTA_Subway_Ridership_Summarized_Apr21.csv"
-  ).groupby(['lines', 'month'], as_index = False).agg({
+    "C:\\Users\\hychu\\OneDrive\\Desktop\\SP25\\_BTRY_4100\\_FINAL_PROJECT\\MTA_Subway_Ridership_Summarized_Apr21.csv"
+  )
+  ridership_data = ridership_data[~ridership_data['station_complex'].isin([
+    "Beach 105 St (A,S)", "Beach 25 St (A)", "Beach 36 St (A)", "Beach 44 St (A)", "Beach 67 St (A)", 
+    "Beach 90 St (A,S)", "Beach 98 St (A,S)", "Broad Channel (A,S)", "Rockaway Park-Beach 116 St (A,S)"
+  ])].copy()
+  
+  ridership_data = impute_shuttles(ridership_data.groupby(
+    ['lines', 'month'], as_index = False).agg({
     'ridership': 'mean'
-  })
-  ridership_data = impute_shuttles(ridership_data)
+  }))
   
   print("Processing line performance data...")
 
   # import line performanace data
-  line_data = pd.read_csv("MTA_Subway_Line_Data_2025_Apr21.csv").iloc[:, 1:] # remove index column
+  line_data = pd.read_csv("C:\\Users\\hychu\\OneDrive\\Desktop\\SP25\\_BTRY_4100\\_FINAL_PROJECT\\MTA_Subway_Line_Data_2025_Apr21.csv").iloc[:, 1:] # remove index column
   line_data['month'] = pd.to_datetime(line_data['month']).dt.month
   metrics = line_data.columns[3:].to_numpy()
   # compute weights by gross ridership
@@ -96,8 +102,8 @@ def main():
       ).sum()
 
   # save to .csv
-  composite_data_unweighted.to_csv("Unweighted_Data_Apr22.csv")
-  composite_data_weighted.to_csv("Weighted_Data_Apr22.csv")
+  composite_data_unweighted.to_csv("Unweighted_Data_Apr23.csv")
+  composite_data_weighted.to_csv("Weighted_Data_Apr23.csv")
 
   print("Successfully saved to .csv.")
 
