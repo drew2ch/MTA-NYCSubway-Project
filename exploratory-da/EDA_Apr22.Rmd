@@ -132,7 +132,8 @@ grid.arrange(plot1, plot2, plot3, plot4, nrow = 2, ncol = 2)
 
 ```{r}
 # row/cols in order: additional_platform_time, additional_train_time, over_five_mins_perc, wait_assessment, service_delivered, terminal_on_time_performance, percent_late
-unname(cor(line_data[, colnames(line_data_jan)[4:10]]))
+unname(cor(line_data[, colnames(line_data)[4:10]]))
+pairs(line_data[, 4:10])
 ```
 
 ```{r}
@@ -234,7 +235,7 @@ ggplot(ridership_data_jan, aes(x = ridership)) +
   scale_x_log10() +
   labs(title = "Distribution of January Ridership\n(log scale)",
        x = "Ridership (log10)", y = "Count")
-ggplot(ridership_data_feb, aes(x = ridership)) +
+ggplot(ridership_data_feb[ridership_data_feb$ridership>1000, ], aes(x = ridership)) +
   geom_histogram(bins = 50, fill = "steelblue", color = "white") +
   scale_x_log10() +
   labs(title = "Distribution of February Ridership\n(log scale)",
