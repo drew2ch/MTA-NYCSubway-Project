@@ -1,0 +1,243 @@
+---
+title: "Regression Modeling and Analysis"
+author: "Andrew Chung"
+date: "2025-05-15"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Linear Regression Modeling and Analysis
+
+Andrew Chung, hc893
+
+BTRY 4100 Final Project -- Linear Regression Modeling and Analysis.
+
+```{r}
+options(warn = -1)
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(ggridges)
+library(GGally)
+library(ggfortify)
+library(MASS)
+library(car)
+library(pls)
+library(glmnet)
+library(sandwich)
+library(lmtest)
+library(effects)
+library(interactions)
+```
+
+## Read in Data
+
+```{r}
+# Import Data, and Some Pre-Processing
+data = read.csv("subwaydata.csv")[, -c(1,3)] %>% 
+  
+  # combine incident counts by infrastructure type
+  mutate(
+    infra = infra_critical + infra_noncritical,
+    noninfra = noninfra_critical + noninfra_noncritical
+  ) %>%
+  dplyr::select(-infra_critical, -infra_noncritical, -noninfra_critical, -noninfra_noncritical) %>%
+  
+  # standardize rows by the number of subway lines
+  mutate(
+    split = strsplit(lines, ","), 
+    n_lines = lengths(split)
+  ) %>%
+  dplyr::select(-lines, -split) %>%
+  mutate(across(1:10, ~ ./n_lines)) %>%
+  
+  # re-configure certain percentage metrics
+  rename(
+    timeliness = percent_late,
+    under_five_mins_perc = over_five_mins_perc
+  ) %>%
+  mutate(
+    timeliness = 1 - timeliness,
+    under_five_mins_perc = 1 - under_five_mins_perc
+  )
+
+head(data)
+
+# Visualizing Ridership vs. Log-Ridership Distributions.
+
+# Raw ridership
+hist.1 = ggplot(data, aes(x = ridership)) + geom_histogram(bins = 50) + labs(
+  title = "Ridership Density", x = "Ridership"
+)
+# Log-Transformed ridership
+hist.2 = ggplot(data, aes(x = log(ridership))) + geom_histogram(bins = 50) + labs(
+  title = "Log-Transformed Ridership Density", x = "log(Ridership)"
+)
+
+grid.arrange(hist.1, hist.2, nrow = 1, ncol = 2)
+```
+
+## Ordinary Least Squares (OLS) Model -- Ridership
+
+```{r}
+# Before running the model, I scale down the ridership by 1,000.
+data.scaled = data %>% mutate(ridership = ridership/1000) # scale ridership to 1K
+lm1 = lm(ridership ~ ., data = data.scaled)
+summary(lm1)
+autoplot(lm1)
+
+# residuals test
+residuals = resid(lm1)
+shapiro.test(residuals)
+
+# VIFs
+vif(lm1)
+
+# Box-Cox Plot to assess the ideal mode of transformation of my response.
+bc = boxcox(
+  lm1,
+  plotit = TRUE,
+  xlab = expression(lambda),
+  ylab = "Log-Likelihood"
+)
+```
+
+The Box-Cox transformation is defined as 
+
+$$y^{(\lambda)} = \operatorname{ifelse}\bigg(\lambda\neq0, \frac{y^\lambda - 1}{\lambda}, \log(y)\bigg)$$
+
+## Ordinary Least Squares (OLS) Model -- Log-Transformed Ridership
+
+```{r}
+data.log = data %>% 
+  mutate(# log-transform ridership and n_lines
+    ridership = log(ridership),
+    n_lines = log(n_lines)
+  ) %>%
+  mutate(infra = log(infra), noninfra = log(noninfra))
+lm.log = lm(ridership ~ ., data = data.log)
+summary(lm.log)
+autoplot(lm.log)
+
+# residuals test
+residuals = resid(lm.log)
+shapiro.test(residuals)
+
+# VIFs
+as.matrix(vif(lm.log))
+```
+
+## Handling Collinearity
+
+```{r}
+# Examine the correlation of the 3 highest-VIF features (Wait Assessment, Service Delivered, Terminal On-Time Performance -- all %)
+cor(data.log[, c("wait_assessment", "service_delivered", "terminal_on_time_performance")])
+
+# Clearly, the three are almost perfectly aligned. To eliminate the multi-collinearity between the 3 variables, I have compressed the three variables into a single principal component (PC).
+mat = data.log[, c("wait_assessment", "service_delivered", "terminal_on_time_performance")]
+pca.res = prcomp(mat, center = FALSE, scale. = TRUE)
+summary(pca.res)
+
+# immersion of "Reliability" PC into the data set
+# additionally, I sought to log-transform the incident count (both infra and non-infra).
+data.log$reliability_PC = pca.res$x[, 1]
+data.log.pc = data.log %>%
+  dplyr::select(-wait_assessment, -service_delivered, -terminal_on_time_performance)
+
+lm.pc = lm(ridership ~ ., data = data.log.pc)
+summary(lm.pc)
+autoplot(lm.pc)
+vif(lm.pc)
+```
+
+### Addition of Interaction Terms
+
+I sought to include an interaction term to better capture between-predictor effects (for any that exist) and improve upon the model's predictive power.
+
+```{r}
+# Find every possible pair of interaction terms
+predictors = names(data.log.pc)[-1]
+int.pairs = as.data.frame(t(combn(predictors, 2))) %>%
+  rename(
+    var1 = V1, var2 = V2
+  )
+int.pairs$p = NA
+int.pairs$r2 = NA
+
+for (i in 1:nrow(int.pairs)){
+  pair = int.pairs[i, ]
+  term = paste(pair[1], pair[2], sep = ":")
+  formula <- as.formula(
+    paste("ridership ~ . +", term)
+  )
+  interaction.model <- update(lm.pc, formula)
+
+  # Compare the interaction model with the base model using ANOVA
+  aov <- anova(lm.pc, interaction.model)
+
+  # Extract p-value, R^2 for the interaction term
+  int.pairs$p[i] = aov$`Pr(>F)`[2]
+  int.pairs$r2[i] = summary(interaction.model)$adj.r.squared
+}
+
+# identify viable interaction pairs
+int.pairs[(int.pairs$p < 0.05) & (int.pairs$r2 > summary(lm.pc)$adj.r.squared), ]
+```
+
+To maintain model parsimony, I decided to limit the addition of interaction terms to 1; clearly, `additional_train_time:reliability_PC` appears most significant and improves predictive power most.
+
+```{r}
+lm.pc.int = lm(
+  ridership ~ . + 
+  additional_train_time:reliability_PC,
+  data = data.log.pc
+)
+summary(lm.pc.int)
+autoplot(lm.pc.int)
+
+# test for residuals
+residuals = resid(lm.pc.int)
+shapiro.test(residuals)
+```
+
+## Model Analysis
+
+```{r}
+confint(lm.pc.int)
+```
+
+```{r}
+car::influencePlot(lm.pc.int)
+car::vif(lm.pc)
+lmtest::bptest(lm.pc.int)
+
+# interaction plot for additional_train_time:reliability_PC
+interactions::interact_plot(
+  lm.pc.int,
+  pred = additional_train_time,
+  modx = reliability_PC,
+  modx.values = c(-1, 0, 1),
+  interval = TRUE
+)
+```
+
+### Adoption of HC3 (Heteroskedascity-Constant) Robust SEs to Control for Hetetoskedascity
+
+```{r}
+# Naive OLS SEs
+naive_summary <- summary(lm.pc.int)$coef
+
+# HC3‐robust SEs
+library(sandwich); library(lmtest)
+robust_coefs  <- coeftest(lm.pc.int, vcov = vcovHC(lm.pc.int, "HC3"))
+
+knitr::kable(
+  cbind(naive_summary, robust_coefs[,2:4]),
+  col.names = c("Estimate","Naive SE","t","Naive p","Robust SE","Robust t","Robust p"),
+  digits=3
+)
+```
+

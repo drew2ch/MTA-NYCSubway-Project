@@ -1,0 +1,431 @@
+---
+title: "Exploratory Data Analysis"
+author: "Andrew Chung"
+date: "2025-05-15"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exploratory Data Analysis (EDA)
+
+Andrew Chung, hc893
+
+BTRY 4100 Final Project -- Exploratory Data Analysis.
+
+```{r}
+options(warn = -1)
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(ggridges)
+library(GGally)
+library(patchwork)
+```
+
+## Read in Data
+
+```{r}
+station.data = read.csv("MTA_Subway_Ridership_Summarized_Apr21.csv") %>%
+  filter(ridership > 1000) # apply ridership mask of 1000 (already accounted for in regression dataset)
+line.data = read.csv("MTA_Subway_Line_Data_2025_Apr21.csv")
+
+dim(station.data)
+dim(line.data)
+dim(model.data)
+```
+
+## EDA: Station Ridership Data
+
+This section explores the monthly by-station ridership dataset. Each row represents a station (ridership > 1000), its ridership figure in either Month, borough, and line(s) serving it.
+
+```{r}
+head(station.data)
+```
+
+### Distribution of Ridership
+
+First, I plotted some histograms to eyeball the distribution of ridership across stations. The raw histogram is heavily skewed right -- a logical conclusion considering the unprecedented volume of traffic seen by a select few stations (e.g. Times Square, Penn Station, Grand Central) in touristy or otherwise hectic spots in the city.
+
+Alternatively, I also made a histogram of the log-transformed figures which appeared much more symmetric (save for a few extreme outliers on both sides) and approximately normal.
+
+Lastly, I overlaid the density curves of ridership by month (January, February) and noticed, aside from a small left shift, a relative lack of change in station usage behavior from January to February.
+
+```{r}
+# Raw ridership
+hist.1 = ggplot(station.data, aes(x = ridership)) + geom_histogram(bins = 100) + labs(
+  title = "Ridership Density", x = "Ridership"
+)
+
+# Log-Transformed ridership
+hist.2 = ggplot(station.data, aes(x = log(ridership))) + geom_histogram(bins = 100) + labs(
+  title = "Log-Transformed Ridership Density", x = "log(Ridership)"
+)
+
+# Superimposed Densities of ridership between months
+month.hist = ggplot(station.data, aes(x = log(ridership), color = as.factor(month))) + geom_density(linewidth = 1.5) + labs(
+  title = "Monthly Density Curves Overlapped", x = "log(Ridership)"
+)
+
+grid.arrange(
+  grid.arrange(hist.1, hist.2, nrow = 1, ncol = 2), month.hist, nrow = 2
+)
+```
+
+### Station Categories
+
+1. Frequency Table by Borough
+2. Distribution of Line Counts by Station
+3. Ridership Figures vs. Number of Lines Serving Station
+4. Station-wise Jan vs. Feb Ridership Comparison
+
+```{r}
+# Frequency Table by Borough
+freq.df <- station.data %>%
+  group_by(borough) %>%
+  summarise(Count = n()) %>%
+  mutate(Proportion = Count / sum(Count))
+borough.bars = ggplot(freq.df, aes(x = borough, y = Proportion)) +
+  geom_bar(stat = "identity", fill = "steelblue", color = "black") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "Proportion of Stations by Borough",
+    x = "Borough",
+    y = "Proportion"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Station-Line Comparisons
+station.data = station.data %>%
+  mutate(split_list = strsplit(lines, ","), n_lines = lengths(split_list))
+## Distribution of # of lines
+nline.hist = ggplot(station.data, aes(x = n_lines, y = after_stat(density))) + geom_histogram(bins = 10) + labs(
+  title = "Distribution of Line Numbers", x = "Number of Lines"
+)
+
+# Boxplot of ridership by how many lines serve the station
+
+station.data.jan = station.data[station.data$month == 1, ]
+station.data.feb = station.data[station.data$month == 2, ]
+
+nline.box = ggplot(station.data, aes(x = factor(n_lines), y = ridership)) +
+  geom_boxplot(fill = "lightcoral") +
+  scale_y_log10() +
+  labs(title = "Ridership vs. Number of Lines",
+       x = "Number of Lines", y = "Ridership (log10)")
+
+diff = station.data[-c(357:361, 509), ] %>%
+  pivot_wider(
+    id_cols = station_complex,
+    names_from = month,
+    values_from = ridership,
+    names_prefix = "ridership_month_"
+  ) %>%
+  rename(jan = ridership_month_1,
+         feb = ridership_month_2)
+
+jan.feb.comp = ggplot(diff, aes(x = jan, y = feb)) +
+  geom_point(alpha = 0.6) +
+  #geom_smooth(method = "lm", se = FALSE, color = "darkred") +
+  scale_x_log10() + scale_y_log10() +
+  labs(title = "Jan vs. Feb Ridership per Station",
+       x = "Jan Ridership (log10)", y = "Feb Ridership (log10)")
+
+grid.arrange(
+  borough.bars, 
+  nline.hist, 
+  nline.box,
+  jan.feb.comp, 
+  nrow = 2, ncol = 2
+)
+```
+
+## EDA: Line Performance Data
+
+This section explores the monthly by-line performance dataset. Each row represents a subway line, its ridership figure in either Month, and 11 distinct performance metrics rigorously compiled from 7 data sets.
+
+```{r}
+head(line.data)
+
+# Split into January and February
+line.data$month = as.numeric(format(as.POSIXct(line.data$month, format = "%Y-%m-%d"), "%m"))
+line.data.jan = line.data[line.data$month == 1, ]
+line.data.feb = line.data[line.data$month == 2, ]
+```
+
+### Line-Ridership Trends
+
+1. Monthly Line Usage (Jan, Feb, Combined)
+2. % Change in Monthly Line Usage from Jan to Feb
+
+```{r}
+# Ridership Bar Chart by Line (Jan, Feb, Combined)
+
+plot.jan = ggplot(line.data.jan, aes(x = reorder(line, -num_passengers), y = num_passengers)) + geom_bar(stat = "identity") + labs(
+    x = "Subway Line",
+    y = "Passenger Volume",
+    title = "Jan 2025" # Chart title
+)
+plot.feb = ggplot(line.data.feb, aes(x = reorder(line, -num_passengers), y = num_passengers)) + geom_bar(stat = "identity") + labs(
+    x = "Subway Line",
+    y = "Passenger Volume",
+    title = "Feb 2025" # Chart title
+)
+plot.combined = ggplot(line.data, aes(x = reorder(line, -num_passengers), y = num_passengers)) + geom_bar(stat = "identity") + labs(
+    x = "Subway Line",
+    y = "Passenger Volume",
+    title = "Combined" # Chart title
+)
+grid.arrange(plot.jan, plot.feb, plot.combined, nrow = 1)
+
+# Percent Change in Monthly Ridership
+
+delta_data = merge(
+  line.data.jan[, c("line", "num_passengers")],
+  line.data.feb[, c("line", "num_passengers")],
+  by = "line"
+) %>%
+  rename(
+    jan = num_passengers.x,
+    feb = num_passengers.y
+  ) %>%
+  mutate(jan = jan/31, feb = feb/28) %>%
+  mutate(percent_change = 100 * (feb-jan)/jan)
+ggplot(delta_data, aes(x = reorder(line, -percent_change), y = percent_change)) + geom_bar(stat = "identity") + labs(
+    x = "Subway Line",
+    y = "Percent Change",
+    title = "Percent Change of Daily Ridership" # Chart title
+)
+```
+
+### Analyzing Covariate Distributions
+
+I grouped covariates by measurement type (time (min), raw count, ratio (%)) and plotted their respective distributions as a collage of ridgeline plots.
+
+```{r}
+# Convert to a compatible format for a Ridgeline plot
+line.dist.data <- line.data[, -c(1:4)] %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "feature",
+    values_to = "value"
+)
+
+# Continuous Metrics
+time.plot = ggplot(line.dist.data[
+    line.dist.data$feature %in% colnames(line.data)[5:6],
+], aes(x = value, y = feature, fill = feature)) + geom_density_ridges() + labs(
+    x = "Time (min)",
+    title = "Additional Wait/Train Times" # Chart title
+) + theme_minimal() + theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+)
+ratio.plot = ggplot(line.dist.data[
+    line.dist.data$feature %in% colnames(line.data)[7:11],
+], aes(x = value, y = feature, fill = feature)) + geom_density_ridges() + labs(
+    x = "Proportion",
+    title = "Ratio-Based Metrics" # Chart title
+) + theme_minimal() + theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+)
+
+# Incident Counts
+crit.count.plot = ggplot(line.dist.data[
+    line.dist.data$feature %in% colnames(line.data)[12:13],
+], aes(x = value, y = feature, fill = feature)) + geom_density_ridges() + labs(
+    x = "Count",
+    title = "Critical Incidents" # Chart title
+) + theme_minimal() + theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+)
+noncrit.count.plot = ggplot(line.dist.data[
+    line.dist.data$feature %in% colnames(line.data)[14:15],
+], aes(x = value, y = feature, fill = feature)) + geom_density_ridges() + labs(
+    x = "Count",
+    title = "Non-Critical Incidents" # Chart title
+) + theme_minimal() + theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+)
+
+# Combined Counts
+line.data = line.data %>%
+  mutate(infra = infra_critical + infra_noncritical,
+         noninfra = noninfra_critical + noninfra_noncritical)
+
+comb.count.plot = ggplot(line.dist.data[
+    line.dist.data$feature %in% colnames(line.data)[16:17],
+], aes(x = value, y = feature, fill = feature)) + geom_density_ridges() + labs(
+    x = "Count",
+    title = "Incidents Count" # Chart title
+) + theme_minimal() + theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+)
+
+composite.fig = grid.arrange(
+  time.plot, 
+  ratio.plot, 
+  comb.count.plot,
+  nrow = 1
+) # imported to final report but not displayed on the document due to figure margin constraints.
+```
+
+### Monthly Shift in Trends
+
+Side-by-Side Box Plots of Monthly Shift of Response and All Predictors.
+
+```{r}
+par(mfrow = c(3,4));
+for (cov in colnames(line.data)[-c(1:3, 12:15)]){
+  boxplot(line.data[, cov] ~ line.data$month, main = cov, xlab = "Month", ylab = NA)
+} # in report
+```
+
+### Incident Counts
+
+Tracks Count of Incidents across Lines, highlighting accident-prone services.
+
+```{r}
+plot1 <- ggplot(line.data, aes(x = reorder(line, -infra_critical), y = infra_critical)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Critical Infrastructure"
+  )
+
+plot2 <- ggplot(line.data, aes(x = reorder(line, -noninfra_critical), y = noninfra_critical)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Critical Non-Infrastructure"
+  )
+
+plot3 <- ggplot(subset(line.data, infra_noncritical > 0), aes(x = reorder(line, -infra_noncritical), y = infra_noncritical)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Non-Critical Infrastructure"
+  )
+
+plot4 <- ggplot(subset(line.data, noninfra_noncritical > 0), aes(x = reorder(line, -noninfra_noncritical), y = noninfra_noncritical)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Non-Critical Non-Infrastructure"
+  )
+
+grid.arrange(plot1, plot2, plot3, plot4, nrow = 2, ncol = 2)
+
+line.data$infra = line.data$infra_critical + line.data$infra_noncritical
+line.data$noninfra = line.data$noninfra_critical + line.data$noninfra_noncritical
+
+ggplot(line.data, aes(x = reorder(line, -infra), y = infra)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Critical Infrastructure"
+  )
+
+ggplot(line.data, aes(x = reorder(line, -noninfra), y = noninfra)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Line",
+    y = "Count",
+    title = "Critical Non-Infrastructure"
+  )
+```
+
+### Collinearity
+
+```{r}
+as.data.frame(cor(line.data[, 5:11]))
+corr.plot = ggpairs(line.data[, 5:11])# + scale_x_continuous(n.breaks = 3) + scale_x_continuous(n.breaks = 3)
+# imported to final report but not displayed on the document due to figure margin constraints.
+```
+
+### Principle Component Analysis (PCA)
+
+<TODO>
+
+```{r}
+cont.vars = line.data[, -c(1:4, 12:15)]
+res.pca = prcomp(cont.vars, scale. = T)
+
+## scree plot (PVE)
+
+eigenvalues <- res.pca$sdev^2
+proportion_variance <- eigenvalues / sum(eigenvalues)
+scree_data <- data.frame(
+  PC = 1:length(eigenvalues),
+  Eigenvalue = eigenvalues,
+  Proportion = proportion_variance,
+  Cumulative_Proportion = cumsum(proportion_variance)
+)
+scree.plot = ggplot(scree_data, aes(x = PC)) +
+  geom_line(aes(y = Eigenvalue, color = "Eigenvalue")) +
+  geom_point(aes(y = Eigenvalue, color = "Eigenvalue")) +
+  geom_line(aes(y = Proportion * max(scree_data$Eigenvalue), color = "Proportion Variance")) +
+  geom_point(aes(y = Proportion * max(scree_data$Eigenvalue), color = "Proportion Variance")) +
+  scale_y_continuous(
+    name = "Eigenvalue",
+    sec.axis = sec_axis(~ . / max(scree_data$Eigenvalue), name = "Proportion of Variance")
+  ) +
+  scale_color_manual(values = c("Eigenvalue" = "blue", "Proportion Variance" = "red")) +
+  labs(
+    title = "Scree Plot for PVE",
+    x = "Principal Component",
+    color = "Metric"
+  ) +
+  theme_minimal() +
+  scale_x_continuous(breaks = 1:length(eigenvalues))
+
+## Loadings (k = 3)
+
+loadings <- res.pca$rotation
+
+loadings.df <- as.data.frame(loadings) %>%
+  mutate(variable = rownames(loadings)) %>%
+  pivot_longer(
+    cols = starts_with("PC"),
+    names_to = "principal_component",
+    values_to = "loading"
+  ) %>%
+  mutate(principal_component = factor(principal_component, levels = paste0("PC", 1:ncol(loadings))))
+loadings.df
+
+bar.plot <- ggplot(
+    loadings.df %>% filter(principal_component %in% c("PC1", "PC2", "PC3")), 
+    aes(x = variable, y = loading, fill = loading)
+  ) +
+  geom_bar(stat = "identity") +
+  facet_wrap(~ principal_component, nrow = 1) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray") +
+  labs(title = "Loadings for PC1, PC2, PC3",
+       x = "Covariates",
+       y = "Loading",
+       fill = "Loading") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 0.5)
+  )
+
+grid.arrange(scree.plot, bar.plot, nrow = 1)
+```

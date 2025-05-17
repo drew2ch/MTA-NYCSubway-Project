@@ -229,26 +229,29 @@ setdiff(stations_jan, stations_feb) # to be removed
 ```
 
 ```{r}
+library(gridExtra)
 # 1a) Histogram (log-scale) of ridership
-ggplot(ridership_data_jan, aes(x = ridership)) +
+plot1 = ggplot(ridership_data_jan, aes(x = ridership)) +
   geom_histogram(bins = 50, fill = "steelblue", color = "white") +
   scale_x_log10() +
   labs(title = "Distribution of January Ridership\n(log scale)",
        x = "Ridership (log10)", y = "Count")
-ggplot(ridership_data_feb[ridership_data_feb$ridership>1000, ], aes(x = ridership)) +
+plot2 = ggplot(ridership_data_feb[ridership_data_feb$ridership>1000, ], aes(x = ridership)) +
   geom_histogram(bins = 50, fill = "steelblue", color = "white") +
   scale_x_log10() +
   labs(title = "Distribution of February Ridership\n(log scale)",
        x = "Ridership (log10)", y = "Count")
 
-ggplot(ridership_data_jan, aes(x = borough, y = ridership)) +
+plot3 = ggplot(ridership_data_jan, aes(x = borough, y = ridership)) +
   geom_boxplot(fill = "lightgreen") +
   scale_y_log10() +
   labs(title = "Jan Ridership by Borough", x = "Borough", y = "Ridership (log10)")
-ggplot(ridership_data_feb, aes(x = borough, y = ridership)) +
+plot4 = ggplot(ridership_data_feb, aes(x = borough, y = ridership)) +
   geom_boxplot(fill = "lightgreen") +
   scale_y_log10() +
   labs(title = "Feb Ridership by Borough", x = "Borough", y = "Ridership (log10)")
+
+grid.arrange()
 ```
 
 ```{r}
